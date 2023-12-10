@@ -1,18 +1,23 @@
-from kivy.utils import platform
+from kivy.app import App
+from kivy.uix.label import Label
+from bs4 import BeautifulSoup
+import requests
 
-from app import MyApp
-from logger import logger
+class MyApp(App):
+    def build(self):
+        # Делаем запрос к веб-сайту
+        url = 'https://example.com'
+        response = requests.get(url)
+        html_content = response.text
 
+        # Используем BeautifulSoup для парсинга HTML
+        soup = BeautifulSoup(html_content, 'html.parser')
+        title = soup.title.string
 
-_log = logger.getLogger(__name__)
-
-if platform == "android":
-     from android.permissions import request_permissions, Permission
-     request_permissions([Permission.INTERNET, Permission.READ_EXTERNAL_STORAGE, Permission.WRITE_EXTERNAL_STORAGE])
+        # Создаем Kivy виджет
+        label = Label(text=f'Title from BeautifulSoup: {title}')
+        return label
 
 
 if __name__ == '__main__':
-    try:
-        MyApp().run()
-    except Exception as e:
-        _log.error(e)
+    MyApp().run()
