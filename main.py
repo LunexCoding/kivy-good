@@ -74,7 +74,7 @@ class MainApp(App):
 
     def clk(self, obj):
         popup = Popup(title="GROUP 5",
-                      content=Label(text='MADE BY:\n\nKAMRAN SAIF', font_size='25sp'),
+                      content=Label(text='MADE BY:\n\nLunexHub', font_size='25sp'),
                       size_hint=(.8, .8))
         popup.open()
 
