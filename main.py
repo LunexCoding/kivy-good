@@ -73,13 +73,13 @@ class MainApp(App):
             self.button[index].disabled = False
 
     def clk(self, obj):
-        popup = Popup(title="GROUP 5",
-                      content=Label(text='MADE BY:\n\nLunexHub', font_size='25sp'),
+        popup = Popup(title="TAP HERE",
+                      content=Label(text='MADE BY:\n\nMatvey Yurkin\n\nDmitriy Kovalev', font_size='25sp'),
                       size_hint=(.8, .8))
         popup.open()
 
     def build(self):
-        self.title = "Tic Tak Tok by Group 5"
+        self.title = "Tic Tak Tok by Dmitriy Kovalev, Matvey Yurkin"
 
         root = BoxLayout(orientation="vertical", padding=5)
 
@@ -97,7 +97,7 @@ class MainApp(App):
 
         root.add_widget(
             Button(
-                text="Credit : GROUP 5", font_size='30sp',
+                text="Credit : Group 09.07.10", font_size='30sp',
                 size_hint=[1, .1],
                 on_press=self.clk
 
